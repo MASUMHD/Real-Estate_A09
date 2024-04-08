@@ -1,0 +1,81 @@
+[
+    {
+      "estate_title": "Luxurious Penthouse with Stunning City Views",
+      "id": 1,
+      "segment_name": "Villa",
+      "description": "Indulge in the epitome of urban luxury with this penthouse boasting breathtaking skyline vistas. Located atop a prestigious high-rise, this residence offers unparalleled sophistication and comfort. With expansive floor-to-ceiling windows, a spacious living area, gourmet kitchen, and deluxe amenities, it's an ideal retreat for discerning individuals. Enjoy the convenience of nearby fine dining, entertainment, and shopping. Available for sale, this penthouse redefines modern metropolitan living.",
+      "price": "$5,000,000",
+      "status": "Sale",
+      "area": "3000 sq ft",
+      "location": "Metropolis",
+      "facilities": ["Spacious living room", "Infinity pool", "Gourmet kitchen"],
+      "image": "https://i.postimg.cc/ZnDC0Md2/townhome-4-1399x899.jpg",
+      "button": "View Property"
+    },
+    {
+      "estate_title": "Exclusive Beachfront Villa with Private Access",
+      "id": 2,
+      "segment_name": " Penthouse",
+      "description": "Escape to a secluded paradise with this exquisite beachfront villa offering unparalleled privacy and luxury. Nestled along pristine shores, this residence epitomizes coastal elegance with its panoramic ocean views, lush gardens, and direct beach access. Featuring spacious interiors, lavish bedrooms, and resort-style amenities, it's an idyllic sanctuary for relaxation and entertainment. Available for rent, this villa promises an unforgettable retreat for discerning travelers seeking the ultimate beachfront experience.",
+      "price": "$2,500/night",
+      "status": "Rent",
+      "area": "5000 sq ft",
+      "location": "Beachfront",
+      "facilities": ["Private beach access", "Outdoor dining area", "Infinity pool"],
+      "image": "https://i.postimg.cc/Y04tDqvD/townhome-6-1399x899.jpg",
+      "button": "View Property"
+    },
+    {
+      "estate_title": "Luxury Resort Retreat Spectacular Landscapes",
+      "id": 3,
+      "segment_name": "Resort",
+      "description": "Experience unparalleled opulence amidst breathtaking natural beauty with this luxury resort retreat. Nestled within lush tropical landscapes, this resort offers a harmonious blend of indulgence and tranquility. Guests can enjoy world-class amenities including spa services, gourmet dining, and recreational activities. With elegantly appointed suites, panoramic views, and personalized service, it's an ideal destination for rejuvenation and relaxation. Rooms available for both sale and rent.",
+      "price": "$500 - $2000/night",
+      "status": "Sale",
+      "area": "7000 sq ft",
+      "location": "Tropical Paradise",
+      "facilities": ["Spa", "Gourmet restaurants", "Fitness center"],
+      "image": "https://i.postimg.cc/tRVTz2Fq/townhome-9-1399x899.jpg",
+      "button": "View Property"
+    },
+    {
+      "estate_title": "Private Island Oasis with Exclusivity and Serenity",
+      "id": 4,
+      "segment_name": "Private Island",
+      "description": "Escape the ordinary and embrace ultimate exclusivity on your own private island sanctuary. Surrounded by crystal-clear waters and lush vegetation, this secluded haven offers unparalleled tranquility and seclusion. Featuring luxurious accommodations, pristine beaches, and bespoke services, it's a paradise for those seeking ultimate privacy and relaxation. Whether for a lavish retreat or exclusive events, this private island ensures an unforgettable experience. Available for sale or rent.",
+      "price": "$10,000,000",
+      "status": " Rent",
+      "area": "10 acres",
+      "location": "Island Paradise",
+      "facilities": ["Private beach", "Villas", "Helipad"],
+      "image": "https://i.postimg.cc/y8r4tzzw/townhome-13-1399x899.jpg",
+      "button": "View Property"
+    },
+    {
+      "estate_title": "Majestic Mansion with Grandeur and Splendor",
+      "id": 5,
+      "segment_name": "Mansion",
+      "description": "Step into luxury and sophistication with this majestic mansion exuding timeless elegance and grandeur. Situated amidst manicured gardens and serene surroundings, this estate boasts lavish interiors, expansive living spaces, and exquisite architectural details. With opulent amenities including a home theater, wine cellar, and sprawling grounds with a pool, it offers the ultimate in refined living. Available for sale, this mansion represents an exceptional opportunity for discerning buyers seeking unparalleled luxury.",
+      "price": "$15,000,000",
+      "status": "Sale",
+      "area": "15,000 sq ft",
+      "location": "Residential",
+      "facilities": ["Home theater", "Wine cellar", "Swimming pool"],
+      "image": "https://i.postimg.cc/cJY9hq17/townhome-18-1399x899.jpg",
+      "button": "View Property"
+    },
+    {
+      "estate_title": "Beachfront Mansion with Unrivaled Luxury",
+      "id": 6,
+      "segment_name": "Mansion",
+      "description": "Discover unparalleled luxury and exclusivity with this extravagant beachfront mansion set along pristine shores. Offering panoramic ocean views and direct beach access, this residence epitomizes coastal living at its finest. Boasting luxurious interiors, state-of-the-art amenities, and expansive outdoor spaces with infinity pool and cabana, it's an entertainer's dream and a sanctuary for relaxation. Available for sale, this beachfront mansion presents a rare opportunity to own a slice of paradise.",
+      "price": "$25,000,000",
+      "status": "Sale",
+      "area": "20,000 sq ft",
+      "location": "Beachfront ",
+      "facilities": ["Infinity pool", "Private beach access", "Cabana"],
+      "image": "https://i.postimg.cc/sg5703S2/townhome-20-1399x899.jpg",
+      "button": "View Property"
+    }
+  ]
+  
