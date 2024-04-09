@@ -1,17 +1,62 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { AuthContext } from "../../FirebaseProvider/FirebaseProvider";
+import { useForm } from "react-hook-form";
+import UseAuth from "../../Hooks/UseAuth";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Register = () => {
+  const { createUser } = UseAuth();
+  // console.log(createUser);
+  const [ShowPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
 
-    const { createUser } =useContext(AuthContext)
-    console.log(createUser);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    const [ShowPassword, setShowPassword] = useState(false);
 
+  // navigation system
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || '/'
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters long');
+      return;
+    }
+    else if (!/[A-Z]/.test(password)) {
+        setPasswordError("Password must contain at least one uppercase letter");
+        return;
+    }
+    else if (!/[a-z]/.test(password)) {
+        setPasswordError("Password must contain at least one lowercase letter");
+        return;
+    }
+
+
+    createUser(email, password)
+        // .then((result) => {
+        // console.log(result);
+        // });
+        .then(result => {
+            if(result.user){
+                navigate(from)
+            }
+            alert('user created successfully')
+        })
+        .catch((error) => {
+            console.log(error);
+            setPasswordError(error.message);
+        })
+  };
 
   return (
     <div className="p-3">
@@ -22,19 +67,25 @@ const Register = () => {
             Sign in to access your account
           </p>
         </div>
-        <form noValidate="" action="" className="space-y-12">
+        <form
+          noValidate=""
+          action=""
+          className="space-y-12"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
-              Name
+                Name
               </label>
               <input
                 type="text"
                 name="name"
+                required
                 id="name"
                 placeholder="name"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
-                
+                {...register("name", { required: true })}
               />
             </div>
             <div>
@@ -45,14 +96,16 @@ const Register = () => {
                 type="email"
                 name="email"
                 id="email"
+                required
                 placeholder="leroy@jenkins.com"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
                 fdprocessedid="kkg7uk"
+                {...register("email", { required: true })}
               />
             </div>
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
-              Photo URL
+                Photo URL
               </label>
               <input
                 type="text"
@@ -60,7 +113,7 @@ const Register = () => {
                 id="photoURL"
                 placeholder="Photo URL"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
-                
+                {...register("photoURL")}
               />
             </div>
             <div>
@@ -80,37 +133,41 @@ const Register = () => {
                 type={ShowPassword ? "text" : "password"}
                 name="password"
                 id="password"
+                required
                 placeholder="*****"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
                 fdprocessedid="q3wrnj"
+                {...register("password", { required: true })}
               />
               <span
-              className="absolute text-slate-400 mt-2 text-2xl -ml-8"
-              onClick={() => setShowPassword(!ShowPassword)}
-            >
-              {ShowPassword ? <FaEyeSlash /> : <FaRegEye />}
-            </span>
+                className="absolute text-slate-400 mt-2 text-2xl -ml-8"
+                onClick={() => setShowPassword(!ShowPassword)}
+              >
+                {ShowPassword ? <FaEyeSlash /> : <FaRegEye />}
+              </span>
             </div>
             <div>
-                <button className="btn w-full bg-emerald-300">Sign Up</button>
+              <button className="btn w-full bg-emerald-300">Sign Up</button>
             </div>
+            {passwordError && (
+              <p className="text-red-500 text-center">{passwordError}</p>
+            )}
           </div>
-          
         </form>
         <div className="space-y-2 mt-8">
-            
-            <p className="px-6 text-sm text-center dark:text-gray-600">
-              Don't have an account yet?
-              <Link
-                rel="noopener noreferrer"
-                to="/login"
-                className="hover:underline dark:text-default-600"
-              >
-                Log In
-              </Link>
-              .
-            </p>
-          </div>
+          <p className="px-6 text-sm text-center dark:text-gray-600">
+            Don't have an account yet?
+
+            <Link
+              rel="noopener noreferrer"
+              to="/login"
+              className="hover:underline dark:text-default-600 text-blue-600 font-bold"
+            >
+               Log In
+            </Link>
+            .
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import Register from "./Componants/Pajass/Register";
 import NotFound from "./Componants/Pajass/NotFound";
 import ViewProperty from "./Componants/Pajass/ViewProperty";
 import FirebaseProvider from "./FirebaseProvider/FirebaseProvider";
+import PribetRoute from "./Componants/PribetRoute/PribetRoute";
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,9 @@ const router = createBrowserRouter([
       },
       {
         path:"/details/:id",
-        element:<ViewProperty/>,
+        element:<PribetRoute>
+          <ViewProperty/>
+        </PribetRoute>,
         loader:() => fetch("/fackData.json")
       }
       

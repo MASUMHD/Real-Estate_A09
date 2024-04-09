@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../Hooks/UseAuth";
 
 const NavBar = () => {
   const nabLinks = (
@@ -15,11 +16,13 @@ const NavBar = () => {
       <li className="text-base mr-2">
         <NavLink to="/login">Log In</NavLink>
       </li>
-      <li className="text-base mr-2">
+      {/* <li className="text-base mr-2">
         <NavLink to="/register">Register</NavLink>
-      </li>
+      </li> */}
     </>
   );
+
+  const { logout, user } = UseAuth();
 
   return (
     <div>
@@ -57,9 +60,21 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{nabLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login">
-            <button className="btn bg-green-400 text-white">Log In</button>
-          </Link>
+          {
+            user?.email ? <div className="flex items-center gap-2">
+            <div className="w-12">
+              <img className="rounded-full " src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
+            <button
+              onClick={logout}
+             className="btn btn-error text-white">Log Out</button>
+            </div>
+           :
+            <Link to="/login">
+             <button className="btn bg-green-400 text-white">Log In</button>
+            </Link>
+
+          }
         </div>
       </div>
     </div>
