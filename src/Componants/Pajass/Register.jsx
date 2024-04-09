@@ -6,12 +6,13 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import UseAuth from "../../Hooks/UseAuth";
 import { useNavigate, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = UseAuth();
   // console.log(createUser);
   const [ShowPassword, setShowPassword] = useState(false);
-  const [passwordError, setPasswordError] = useState('');
+  const [passwordError, setPasswordError] = useState("");
 
   const {
     register,
@@ -19,43 +20,64 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-
   // navigation system
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state || '/'
+  const from = location?.state || "/";
 
   const onSubmit = (data) => {
     const { email, password } = data;
 
     if (password.length < 6) {
-      setPasswordError('Password must be at least 6 characters long');
+      setPasswordError("Password must be at least 6 characters long");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setPasswordError("Password must contain at least one uppercase letter");
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      setPasswordError("Password must contain at least one lowercase letter");
       return;
     }
-    else if (!/[A-Z]/.test(password)) {
-        setPasswordError("Password must contain at least one uppercase letter");
-        return;
-    }
-    else if (!/[a-z]/.test(password)) {
-        setPasswordError("Password must contain at least one lowercase letter");
-        return;
-    }
-
 
     createUser(email, password)
-        // .then((result) => {
-        // console.log(result);
-        // });
-        .then(result => {
-            if(result.user){
-                navigate(from)
-            }
-            alert('user created successfully')
-        })
-        .catch((error) => {
-            console.log(error);
-            setPasswordError(error.message);
-        })
+      // .then((result) => {
+      // console.log(result);
+      // });
+      .then((result) => {
+        if (result.user) {
+          navigate(from);
+        }
+
+        
+        // sweet alert
+
+        let timerInterval;
+        Swal.fire({
+          title: "User created successfully!",
+          html: "I will close in <b></b> milliseconds.",
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+              timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          },
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+          }
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setPasswordError(error.message);
+      });
   };
 
   return (
@@ -157,13 +179,12 @@ const Register = () => {
         <div className="space-y-2 mt-8">
           <p className="px-6 text-sm text-center dark:text-gray-600">
             Don't have an account yet?
-
             <Link
               rel="noopener noreferrer"
               to="/login"
               className="hover:underline dark:text-default-600 text-blue-600 font-bold"
             >
-               Log In
+              Log In
             </Link>
             .
           </p>

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import SocalLogin from "../SocalLogin";
 import UseAuth from "../../Hooks/UseAuth";
 import  { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -38,10 +39,22 @@ const Login = () => {
                 if(result.user){
                     navigate(from)
                 }
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Login Successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             })
             .catch (error => {
-                const massage = "Password or Email is not correct. Please register first"
-                alert(massage)
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Password or Email is not correct. Please register first!",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
+                  
                 setError(error.message)
             })
             
