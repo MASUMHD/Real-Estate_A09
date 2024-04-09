@@ -45,9 +45,10 @@ const Login = () => {
                     title: "Login Successful",
                     showConfirmButton: false,
                     timer: 1500
-                  });
+                });
             })
             .catch (error => {
+                // sweet alert
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",

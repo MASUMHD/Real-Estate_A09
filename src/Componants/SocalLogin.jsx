@@ -3,6 +3,7 @@ import { BsGithub } from "react-icons/bs";
 import UseAuth from "../Hooks/UseAuth";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SocalLogin = () => {
 
@@ -19,6 +20,13 @@ const SocalLogin = () => {
             if(result.user){
                 navigate(from)
             }
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Login Successful",
+                showConfirmButton: false,
+                timer: 1500
+            });
         })
     }
     return (

@@ -48,7 +48,7 @@ const Register = () => {
           navigate(from);
         }
 
-        
+
         // sweet alert
 
         let timerInterval;
@@ -184,7 +184,7 @@ const Register = () => {
               to="/login"
               className="hover:underline dark:text-default-600 text-blue-600 font-bold"
             >
-              Log In
+              LogIn
             </Link>
             .
           </p>
