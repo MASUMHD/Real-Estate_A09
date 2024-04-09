@@ -10,6 +10,7 @@ import Login from "./Componants/Pajass/Login";
 import Register from "./Componants/Pajass/Register";
 import NotFound from "./Componants/Pajass/NotFound";
 import ViewProperty from "./Componants/Pajass/ViewProperty";
+import FirebaseProvider from "./FirebaseProvider/FirebaseProvider";
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FirebaseProvider>
+      <RouterProvider router={router} />
+    </FirebaseProvider>
   </React.StrictMode>
 );

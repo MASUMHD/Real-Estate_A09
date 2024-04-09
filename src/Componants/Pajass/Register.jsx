@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../FirebaseProvider/FirebaseProvider";
 
 const Register = () => {
+
+    const { createUser } =useContext(AuthContext)
+    console.log(createUser);
 
     const [ShowPassword, setShowPassword] = useState(false);
 
