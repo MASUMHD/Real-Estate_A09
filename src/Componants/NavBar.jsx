@@ -7,8 +7,15 @@ const NavBar = () => {
       <li className="text-base mr-2">
         <NavLink to="/">Home</NavLink>
       </li>
+      
       <li className="text-base mr-2">
+        <NavLink to="/ourTem">Our Team</NavLink>
+      </li>
+      {/* <li className="text-base mr-2">
         <NavLink to="/updateProfile">Update Profile</NavLink>
+      </li> */}
+      <li className="text-base mr-2">
+        <NavLink to="/about">About</NavLink>
       </li>
       <li className="text-base mr-2">
         <NavLink to="/profile">Profile</NavLink>
@@ -16,9 +23,7 @@ const NavBar = () => {
       <li className="text-base mr-2">
         <NavLink to="/login">Log In</NavLink>
       </li>
-      {/* <li className="text-base mr-2">
-        <NavLink to="/register">Register</NavLink>
-      </li> */}
+      
     </>
   );
 

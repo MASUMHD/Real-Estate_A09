@@ -16,7 +16,7 @@ import 'swiper/css/scrollbar';
 const Banner = () => {
   return (
     
-    <Swiper
+    <Swiper className='mt-10 rounded-3xl'
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       slidesPerView={2}
