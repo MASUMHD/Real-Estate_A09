@@ -17,14 +17,16 @@ const About = () => {
           top-of-the-line appliances, every detail is meticulously curated to
           evoke a sense of grandeur and refinement. One hallmark of luxury homes
           is their emphasis on indoor-outdoor living.
-          <br /> Expansive windows and
+          <br /> 
+          The Expansive windows and
           glass doors seamlessly integrate interior spaces with outdoor
           terraces, gardens, and pools, allowing residents to enjoy breathtaking
           views and soak in natural light. Private courtyards, rooftop decks,
           and landscaped gardens provide serene retreats for relaxation and
           entertainment, creating a harmonious connection between the home and
           its surroundings.
-          <br /> In addition to their stunning aesthetics, luxury
+          <br />
+           In addition to their stunning aesthetics, luxury
           homes offer an array of amenities designed to indulge the senses and
           cater to every need. From spa-like bathrooms with marble finishes and
           soaking tubs to home theaters, wine cellars, and fitness centers,
@@ -35,12 +37,14 @@ const About = () => {
           pivotal role in the allure of luxury homes, with many properties
           situated in prestigious neighborhoods, exclusive gated communities, or
           breathtaking natural settings.
-          <br /> Whether overlooking sparkling city
+          <br />
+           Whether overlooking sparkling city
           skylines, pristine beaches, or rolling hillsides, luxury homes offer
           unparalleled views and access to the finest amenities and attractions.
           Ultimately, luxury homes transcend mere shelter, embodying a lifestyle
           characterized by indulgence, comfort, and sophistication.
-          <br /> They
+          <br /> 
+          They
           represent a sanctuary where residents can retreat from the hustle and
           bustle of everyday life and immerse themselves in a world of
           unparalleled beauty and luxury. From the moment one steps through the
