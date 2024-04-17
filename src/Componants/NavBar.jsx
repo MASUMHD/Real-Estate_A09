@@ -24,6 +24,7 @@ const NavBar = () => {
 
   const { logout, user } = UseAuth();
 
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -60,21 +61,38 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{nabLinks}</ul>
         </div>
         <div className="navbar-end">
-          {
-            user?.email ? <div className="flex items-center gap-2">
-            <div className="w-12">
-              <img className="rounded-full " src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          {user?.email ? (
+            <div className="flex items-center gap-2">
+              <div className="dropdown dropdown-hover">
+                <div tabIndex={0} role="button" className="btn m-1">
+                  <div className="w-12">
+                    <img className="rounded-full " src={user?.photoURL}/>
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li className="rounded-lg bg-green-300 border-2 border-slate-500">
+                    <Link to="/profile" className="font-bold">{user?.displayName}</Link>
+                  </li>
+                  <li className="font-bold">
+                    <Link to="/profile">Profile</Link>
+                  </li>
+                  <li className="font-bold">
+                    <Link to="/updateProfile">Update profile</Link>
+                  </li>
+                </ul>
+              </div>
+              <button onClick={logout} className="btn btn-error text-white">
+                Log Out
+              </button>
             </div>
-            <button
-              onClick={logout}
-             className="btn btn-error text-white">Log Out</button>
-            </div>
-           :
+          ) : (
             <Link to="/login">
-             <button className="btn bg-green-400 text-white">Log In</button>
+              <button className="btn bg-green-400 text-white">Log In</button>
             </Link>
-
-          }
+          )}
         </div>
       </div>
     </div>

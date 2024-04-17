@@ -76,6 +76,7 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
+        alert(error.message);
         setPasswordError(error.message);
       });
   };

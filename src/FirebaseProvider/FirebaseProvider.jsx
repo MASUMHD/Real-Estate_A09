@@ -14,7 +14,8 @@ export const AuthContext = createContext(null);
 
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null)
-//   console.log(user);
+  
+  // console.log(user);
     
 
     
@@ -57,7 +58,10 @@ const logout = () => {
         setUser(user)
       }
     });
-  });
+    return () => {
+      setUser(null)
+    };
+  },[]);
 
   const allValues = {
     createUser,

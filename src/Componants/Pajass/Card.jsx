@@ -1,14 +1,15 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-
+import 'animate.css';
 
 const Card = ( { card }) => {
+  
 
     const {estate_title, segment_name,id,status,location,image,description } = card;
     
   return (
-    <div className="md:ml-5 ">
-      <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 border border-2 border-slate-500 rounded-xl pb-5">
+    <div className="md:ml-5 animate__animated animate__bounce">
+      <div className=" max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 border border-2 border-slate-500 rounded-xl pb-5">
         
         <div className="space-y-4">
           <div className="space-y-2">

@@ -1,52 +1,38 @@
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
 
-const spanStyle = {
-  padding: '20px',
-  
-  color: '#000000'
-}
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-const divStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundSize: 'cover',
-  height: '500px'
-}
-const slideImages = [
-  {
-    url: 'https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/2/8/1/CI_Halstead_History-of-Penthouses-6.jpg.rend.hgtvcom.1280.720.suffix/1518139442662.jpeg',
-  },
-  {
-    url: 'https://w0.peakpx.com/wallpaper/239/158/HD-wallpaper-beautiful-house-luxury-house-luxurious-house-luxurious-home.jpg',
-    
-  },
-  {
-    url: 'https://img.pikbest.com/wp/202408/swimming-pool-terrace-and-landscape-garden-in-exquisite-exterior-design-of-house-home-villa-3d-render_9761322.jpg!sw800',
-    
-  },
-];
+
+import 'swiper/css';
+
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+
+
 
 
 const Banner = () => {
   return (
-    <div className='mt-5 mb-20'>
-
-
-      <div className="slide-container">
-        <Slide >
-         {slideImages.map((slideImage, index)=> (
-            <div key={index} >
-              <div  style={{ ...divStyle, 'backgroundImage': `url(${slideImage.url})` }}>
-                <span style={spanStyle}>{slideImage.caption}</span>
-              </div>
-            </div>
-          ))} 
-        </Slide>
-      </div>
-      
-    </div>
+    
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={2}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      onSlideChange={() => console.log('slide change')}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+      <SwiperSlide><img className='h-[400px]' src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2018/2/8/1/CI_Halstead_History-of-Penthouses-6.jpg.rend.hgtvcom.1280.720.suffix/1518139442662.jpeg" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='h-[400px] w-full' src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG91c2V8ZW58MHx8MHx8fDA%3D" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='h-[400px]' src="https://img.pikbest.com/wp/202408/swimming-pool-terrace-and-landscape-garden-in-exquisite-exterior-design-of-house-home-villa-3d-render_9761322.jpg!sw800" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='h-[400px]' src="https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg" alt="" />
+      </SwiperSlide>
+     
+    </Swiper>
   );
 };
 
